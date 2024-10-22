@@ -49,10 +49,10 @@ report3 = wine_data.groupby(['tipo', 'price_category']).size().unstack(fill_valu
 report4 = wine_data.groupby('pais').agg({'description_length': 'mean', 'puntos': 'mean'}).sort_values(by='description_length', ascending=False)
 
 # Exportar los reportes a diferentes formatos
-report1.to_csv('/mnt/data/report1.csv')
-report2.to_excel('/mnt/data/report2.xlsx', index=False)
-report3.to_sql('report3', 'sqlite:///mnt/data/wine_reports.db', if_exists='replace')
-report4.to_json('/mnt/data/report4.json')
+report1.to_csv('report1.csv')
+report2.to_excel('report2.xlsx', index=False)
+report3.to_sql('report3', 'sqlite:///wine_reports.db', if_exists='replace')
+report4.to_json('report4.json')
 
 # Mostrar el primer reporte
 print(report1.head())
